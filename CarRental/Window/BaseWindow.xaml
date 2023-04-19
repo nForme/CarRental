@@ -1,0 +1,266 @@
+﻿<Window x:Class="CarRental.Window.BaseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarRental.Window"
+        mc:Ignorable="d"
+        Title="BaseWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid VerticalAlignment="Top" Margin="0,10,0,0" Panel.ZIndex="1" Height="30">
+                <ToggleButton BorderThickness="0" Width="135" HorizontalAlignment="Right" Name="btnUserMenu" Margin="0,0,10,0">
+                    <ToggleButton.Style>
+                        <Style TargetType="ToggleButton">
+                            <Setter Property="Background" Value="#ebebeb"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#f7f7f7"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ToggleButton.Style>
+                    <Grid Width="135" HorizontalAlignment="Right" Name="userInfoGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="35"></ColumnDefinition>
+                            <ColumnDefinition ></ColumnDefinition>
+                            <ColumnDefinition Width="30"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock HorizontalAlignment="Center" FontFamily="Roboto Medium" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,2"  Name="txtLogin" Text="login" FontSize="16"></TextBlock>
+                        <Ellipse Width="26" Height="26">
+                            <Ellipse.Fill>
+                                <ImageBrush x:Name="roleImage" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+
+                    </Grid>
+                </ToggleButton>
+                <Grid Width="65" HorizontalAlignment="Left" Margin="10,0,0,0">
+                    <Button Width="30" Height="30" HorizontalAlignment="Left" Name="btnBack" Click="btnBack_Click">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="#ebebeb"></Setter>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#f7f7f7"></Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Width="30" Height="30" HorizontalAlignment="Right" Name="btnForward" Click="btnForward_Click">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="#ebebeb"></Setter>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#f7f7f7"></Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+            </Grid>
+            <Frame Name="baseFrame" NavigationUIVisibility="Hidden"  Grid.Row="0"></Frame>
+        </Grid>
+        <Grid Grid.Column="0" Background="#ebebeb">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1" Height="60" HorizontalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Салон красоты" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="18" Margin="25,20,5,0">
+                    </TextBlock>
+                </Grid>
+            </Grid>
+            <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center">
+                <Button Name="btnVehicle" 
+                        Click="BtnVehicle_OnClick" Background="Transparent" BorderBrush="Transparent">
+                    <Button.Content>
+                        <Grid Height="auto" Width="190">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            
+                            <TextBlock FontFamily="Roboto Medium"  Grid.Column="1" Text="ТС" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Left"></TextBlock>
+                        </Grid>
+                    </Button.Content>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#ebebeb"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="Black"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Foreground" Value="#666666"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Name="btnOrders" 
+                        Margin="0,10,0,0"
+                        Click="BtnOrders_OnClick" Background="Transparent" BorderBrush="Transparent">
+                    <Button.Content>
+                        <Grid Height="auto" Width="190">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            
+                            <TextBlock FontFamily="Roboto Medium" Grid.Column="1" Text="Заказы" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Left"></TextBlock>
+                        </Grid>
+                    </Button.Content>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#ebebeb"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="Black"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Foreground" Value="#666666"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                
+                <Button Name="btnClients"
+                        Margin="0,10,0,0"
+                        Click="btnClients_Click" Background="Transparent" BorderBrush="Transparent">
+                    <Button.Content>
+                        <Grid Height="auto" Width="190">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            
+                            <TextBlock FontFamily="Roboto Medium" Grid.Column="1" Text="Клиенты" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Left"></TextBlock>
+                        </Grid>
+                    </Button.Content>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#ebebeb"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="Black"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Foreground" Value="#666666"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Name="btnReports" 
+                        Margin="0,10,0,0"
+                        Click="btnReports_Click" Background="Transparent" BorderBrush="Transparent">
+                    <Button.Content>
+                        <Grid Height="auto" Width="190">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                           
+                            <TextBlock FontFamily="Roboto Medium" Grid.Column="1" Text="Отчеты" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Left"></TextBlock>
+                        </Grid>
+                    </Button.Content>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#ebebeb"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="Black"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Foreground" Value="#666666"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
